@@ -1,0 +1,10 @@
+﻿{% extends "pages/base.html" %}
+{% block title %}Cảm ơn{% endblock %}
+
+{% block content %}
+{% load humanize %}
+<div class="container">
+    <h2>Cảm ơn bạn đã đặt hàng!</h2>
+    <p>Tổng số tiền: {{ orders.total |intcomma}} VND</p>
+</div>
+{% endblock %}

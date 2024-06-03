@@ -1,0 +1,157 @@
+{% extends "pages/base.html" %} 
+
+{% block title %} 
+    Register
+{% endblock %} 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block register %}
+        {% load static %}
+        <section class="vh-100" style="background-color: rgb(0, 0, 0);">
+            <div class="container h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-9">
+          
+                    <h1 class="text-white mb-4">Đăng ký thành viên</h1>
+          
+                    <form class="card" style="border-radius: 15px;" method='POST' action = ''>
+                        {%csrf_token%}
+                    <div class="card-body">
+            
+                        <div class="row align-items-center pt-4 pb-3">
+                        <div class="col-md-3 ps-5">
+            
+                            <h6 class="mb-0">Họ</h6>
+            
+                        </div>
+                        <div class="col-md-9 pe-5">
+            
+                            {{form.first_name}}
+            
+                        </div>
+                        </div>
+
+                        <hr class="mx-n3">
+
+                        <div class="row align-items-center pt-4 pb-3">
+                        <div class="col-md-3 ps-5">
+            
+                            <h6 class="mb-0">Tên</h6>
+            
+                        </div>
+                        <div class="col-md-9 pe-5">
+            
+                            {{form.last_name}}
+            
+                        </div>
+                        </div>
+            
+                        <hr class="mx-n3">
+            
+                        <div class="row align-items-center py-3">
+                        <div class="col-md-3 ps-5">
+            
+                            <h6 class="mb-0">Tên tài khoản</h6>
+            
+                        </div>
+                        <div class="col-md-9 pe-5">
+            
+                            {{form.username}}
+            
+                        </div>
+                        </div>
+            
+                        <hr class="mx-n3">
+
+                        <div class="row align-items-center py-3">
+                        <div class="col-md-3 ps-5">
+            
+                            <h6 class="mb-0">Địa chỉ email</h6>
+            
+                        </div>
+                        <div class="col-md-9 pe-5">
+            
+                            {{form.email}}
+            
+                        </div>
+                        </div>
+            
+                        <hr class="mx-n3">
+
+                        <div class="row align-items-center py-3">
+                        <div class="col-md-3 ps-5">
+            
+                            <h6 class="mb-0">Mật khẩu</h6>
+            
+                        </div>
+                        <div class="col-md-9 pe-5">
+            
+                            {{form.password1}}
+                            <span id="togglePassword" class="toggle-password" onclick="togglePasswordVisibility()">
+                                <i class="fa fa-eye"></i> <!-- Sử dụng Font Awesome icon -->
+                            </span>
+                        </div>
+                        </div>
+            
+                        <hr class="mx-n3">
+            
+                        <div class="row align-items-center py-3">
+                        <div class="col-md-3 ps-5">
+            
+                            <h6 class="mb-0">Xác nhận mật khẩu</h6>
+                            
+                        </div>
+                        <div class="col-md-9 pe-5">
+            
+                            {{form.password2}}
+                            <span id="togglePassword" class="toggle-password" onclick="togglePasswordVisibility()">
+                                <i class="fa fa-eye"></i> <!-- Sử dụng Font Awesome icon -->
+                            </span>
+                        </div>
+                        </div>
+            
+                        <hr class="mx-n3">
+            
+                        <div class="px-5 py-4">
+                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Register</button>
+                        <h6 class="text-fa-black-tie mb-4 mt-3">Tôi có tài khoản rồi! <a href = {%url 'login'%}>Đăng nhập</a></h6>
+                        </div>
+            
+                    </div>
+                    </form>
+          
+                </div>
+              </div>
+            </div>
+          </section>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            function togglePasswordVisibility() {
+                var passwordField = document.getElementById("passwordField");
+                var togglePassword = document.getElementById("togglePassword");
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                    togglePassword.innerHTML = '<i class="fa fa-eye-slash"></i>'; // Đổi icon khi mật khẩu hiển thị
+                } else {
+                    passwordField.type = "password";
+                    togglePassword.innerHTML = '<i class="fa fa-eye"></i>'; // Đổi icon khi mật khẩu ẩn
+                }
+            }
+       </script>
+       {% endblock %} 
+    </body>
+</html>
+

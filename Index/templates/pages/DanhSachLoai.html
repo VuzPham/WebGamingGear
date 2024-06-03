@@ -1,0 +1,26 @@
+{% extends "pages/base.html" %} 
+{% block title %} 
+    Danh Sách Sản Phẩm theo bảng
+{% endblock %} 
+
+{% block content %}
+{% load static %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Mã Loại</th>
+        <th scope="col">Tên Loại</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for loai in DM_Loai %}
+      <tr>
+          <td>{{ loai.id }}</td>
+          <td>{{ loai.name }}</td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %} 

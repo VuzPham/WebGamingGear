@@ -1,0 +1,287 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <title> {% block title %} {% endblock %} </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/style/style.css' %}">
+    <link rel="stylesheet" href="{% static '/themify-icons/themify-icons.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'bootstrap-4.3.1-dist/css/bootstrap.min.css' %}" type="text/css">
+    <style>
+          .search-form {
+        display: flex;
+        align-items: center;
+        float: right;
+        background-color: black;
+        border-radius: 5px;
+      
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .search-form input[type="text"] {
+        border: none;
+        outline: none;
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        flex: 1;
+    }
+    .search-form button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-left: 10px;
+    }
+    .search-form button:hover {
+        background-color: #0056b3;
+    }
+</style>
+  </head> 
+
+<body> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- header -->
+    <div>
+        <div id="header">
+            <!-- start nav  -->
+            <ul id="nav">
+                <li><a href="{% url 'products' %}">Trang Chủ</a></li>
+                <li><a href="#tintuc">Tin Tức</a></li>
+                <li><a href="{% url 'Member_list' %}">Liên Hệ</a></li>
+                <li><a href="#">Khuyến mãi</a></li>
+                <li>
+                    <a href="">
+                        Loại Sản Phẩm
+                    <i class="nav-arrow ti-angle-down"></i>
+                    </a>
+                    <ul class="subnav" style="z-index: 1;">
+                      <li><a href="{% url 'products' %}#laptop">Laptop</a></li>
+                      <li><a href="{% url 'products' %}#manhinh">Màn Hình</a></li>
+                      <li><a href="{% url 'products' %}#banphim">Bàn Phím</a></li>
+                      <li><a href="{% url 'products' %}#chuot">Chuột</a></li>
+                      <li><a href="{% url 'products' %}#tainghe">Tai Nghe</a></li>
+                      <li><a href="{% url 'products' %}#pc">PC</a></li>
+                      <li><a href="{% url 'products' %}#mic">Mic</a></li>
+                  </ul>
+                </li>
+            </ul>
+            <!-- end nav -->
+
+            <!-- start search  -->
+            
+            <form style="float: right;" class="search-form" method="GET" action="{% url 'search_product' %}">
+              <input type="text" name="q" placeholder="Tìm kiếm sản phẩm..." value="{{ request.GET.q }}">
+              <button type="submit">Tìm kiếm</button>
+          </form>
+            
+            <!-- end search-->
+        </div>
+        <div class="header-second">
+            <img width="230px" height="70px" src="{% static '/images/logo.png' %}" alt="Logo">
+            <div class="section1">
+                <a href="#"><i class="fa fa-user-o"></i>{{request.user}}</a>
+                <a href="{%url 'logout'%}"><i class="fa fa-sign-out"></i>Đăng xuất</a>
+                <a href="{%url 'login'%}"><i class="fa fa-user-o"></i>Đăng Nhập</a>
+                <a href="{%url 'register'%}"><i class="ti-pencil"></i> Đăng Ký</a>
+                <a href="{%url 'xem_gio_hang' %}"><i class="ti-shopping-cart"></i> Giỏ Hàng</a>
+            </div>
+        </div>
+    </div>
+    <!-- slider -->
+    <div class="slider" >
+      <div class="list">
+          <div class="item">
+              <img src="{% static '/images/slider2.webp' %}">
+          </div>
+          <div class="item">
+              <img src="{% static '/images/slider1.webp' %}">
+          </div>
+          <div class="item">
+              <img src="{% static '/images/slider3.webp' %}">
+          </div>    
+          <div class="item">
+              <img src="{% static '/images/slider4.webp' %}">
+          </div>       
+        </div>
+ 
+      <div class="button">
+          <a href="#"><i id="prev" class="ti-angle-left"></i></a>
+          <a href="#"><i id="next" class="ti-angle-right"></i></a>
+      </div>
+  </div>
+      <!-- Sidebar -->
+<div class="w3-sidebar w3-light-grey w3-bar-block sidebar" style="width:25%; float: left;margin-top: 20px;">
+  <h3 class="w3-bar-item">Menu</h3>
+  <ul>
+    <li> <a href="{% url 'index' %}" class="w3-bar-item w3-button">Home</a></li>
+    <li> <a href="{% url 'products' %}" class="w3-bar-item w3-button">Hiển thị sản phẩm</a></li>
+    <li> <a href="{% url 'products_list' %}" class="w3-bar-item w3-button">Hiển thị sản phẩm theo bảng</a></li>
+    <li> <a href="{% url 'Member_list' %}" class="w3-bar-item w3-button">Hiển thị thành viên nhóm</a></li>
+    <li> <a href="{% url 'loai_list' %}" class="w3-bar-item w3-button">Hiển thị danh sách loại sản phẩm</a></li>
+  </ul>
+  
+</div>
+<!-- Page Content -->
+<div style="margin-left:25%">
+  <div class="w3-container w3-teal">
+    
+  {% block content %} 
+  {% endblock %} 
+  {% block login %} 
+  {% endblock %} 
+  {% block register %} 
+  {% endblock %} 
+  </div>
+</div>
+    
+    <div class="menu">
+        <a href="#"><img src="{% static '/images/payonl1.webp' %}"></a>
+        <a href="#"><img src="{% static '/images/payon2.webp' %}"></a>
+          <a href="#"><img src="{% static '/images/payon3.webp' %}"></a>
+    </div>
+
+
+
+  <!-- Sidebar -->
+    <div class="banner-cuahang">
+        <img src="{% static '/images/ark-banner.jpg' %}">
+        <span>
+            <a  href="#">Xem địa chỉ hệ thống hơn 340 Cửa Hàng TechSee <br>
+                Trên toàn quốc</a>
+            </span>
+    </div>
+    <!-- Youtube -->
+    <div class="wrap-archives">
+        <div class="container"> <div class="content-iframe"> 
+            <iframe src="https://www.youtube.com/embed/DuvCLbsf8Hk?controls=1" loading="lazy" frameborder="0allow="; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share allowfullscreen="" width="100%" height="495px">
+                </iframe> 
+              </div> 
+            </div>
+        </div>    
+    <!-- blog -->
+    <div class="container">
+        <div class=" main-title" style="margin: 50px 0;">
+            <h2 id="tintuc" style="text-align: center;"><a >Tin Tức</a></h2>
+        </div>
+        <div class="blog-new">
+            <img src="{% static '/images/new1.webp' %}">
+            <div class="blog-new-left">
+                 <div class="items">
+                     <img src="{% static '/images/new2.webp' %}" > 
+                     <h5 class="title">
+                       Gửi video từ iPhone sang Android cực nhanh mà không làm giảm chất lượng và miễn phí</h5>
+                       <p style="text-align: justify;">
+                           Bạn cần gửi video từ iPhone sang Android nhưng không biết làm thế nào? Trong bài viết dưới đây chúng tôi sẽ chia sẻ ... </p>
+                         <a href="https://fptshop.com.vn/tin-tuc/thu-thuat/bi-quyet-gui-video-tu-iphone-sang-android-185654#:~:text=C%C3%A1c%20%E1%BB%A9ng%20d%E1%BB%A5ng%20nh%C6%B0%20Send,%E1%BA%A3nh%20h%C6%B0%E1%BB%9Fng%20%C4%91%E1%BA%BFn%20ch%E1%BA%A5t%20l%C6%B0%E1%BB%A3ng." style="float: left;">Xem Thêm ></a>
+                 </div>
+                 <div class="items">
+                   <img src="{% static '/images/new3.webp' %}"> 
+                   <h5 class="title">
+                       Cách cài đặt và sử dụng AMD Radeon Software trên máy tính dùng chip AMD</h5>
+                     <p style="text-align: justify;">
+                       AMD Radeon Software là phần mềm tối ưu hóa hiệu suất trên máy tính, laptop sử dụng chip AMD giúp tăng...</p>
+                       <a href="https://fptshop.com.vn/tin-tuc/danh-gia/amd-radeon-software-la-gi-cach-cai-dat-va-su-dung-phan-mem-185557" style="float: left;">Xem Thêm ></a>
+                   </div>
+            </div>
+         </div>
+         <div class="link-view-all">
+            <a href="https://fptshop.com.vn/tin-tuc" class="view-all">Xem Tất Cả</a>
+          </div>
+    </div>
+      
+      <!-- Button Xem Thêm -->
+      
+      <br>
+      <br>
+      <br>
+      <hr>
+
+    <!-- footer -->
+    <div class="footer container">
+        <img src="{% static '/images/logo.png' %}" style="height: 100px; width: 300px;">
+      
+        <div class="footer-information">
+          <div class="footer-column-1 space">
+            <p>© 2017 Công Ty Cổ Phần Thiết bị điện tử
+              <br>ĐT: <a href="#">028 39951703</a>
+              <br>Fax: <a href="#">028 3995 1702</a>
+            </p>
+            <p>170E Phan Đăng Lưu, P.3, Q.Tân Phú, TP.Hồ Chí Minh</p>
+            <p>Giấy chứng nhận đăng ký doanh nghiệp: 0300521758 <br> 
+              do Sở Kế hoạch & Đầu tư TP.HCM cấp lần đầu ngày 02/01/2004. </p>
+            <p>Tổng đài hỗ trợ (08:00-21:00, miễn phí gọi) 
+              <br>Gọi mua: <a href="#">1800545457</a>
+              <br>Khiếu nại: <a href="#">1800545457</a>
+            
+            </p>
+          </div>
+          <div class="footer-column-2 space">
+            <ul> <a href="#" style="color: #000; font-size: 18px; font-weight: bolder;">Về TeachSee</a>
+              <li><a href="#">Câu Chuyện TechSee</a></li>
+              <li><a href="#">Tuyển Dụng</a></li>
+              <li><a href="#">Khuyến mãi</a></li>
+              <li><a href="#">Tra cứu bảo hành</a></li>
+              <li><a href="#">Quy chế hoạt động</a></li>
+            </ul>
+          </div>
+          <div class="footer-column-2 space">
+            <ul> <a href="#" style="color: #000; font-size: 18px; font-weight: bolder;">Dịch Vụ Khách Hàng</a>
+              <li><a href="#">Kiểm tra hóa đơn điện tử</a></li>
+              <li><a href="#">Mua hàng trả góp</a></li>
+              <li><a href="#">Hướng dẫn mua hàng, thanh toán</a></li>
+              <li><a href="#">Chính sách hoàn tiền</a></li>
+              <li><a href="#">Chính sách giao hàng</a></li>
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách bảo mật thông tin khách hàng</a></li>
+              <li><a href="#">Câu hỏi thường gặp</a></li>
+            </ul>
+            
+      
+            </div>
+         
+          <div class="footer-column-3 space">
+            <a href="#" style="color: #000; font-size: 18px; font-weight: bolder;">Kết nối vơí chúng tôi</a><br><br>
+            <a href="#"><img src="{% static '/images/icon-media/facebook.svg' %}"></a>  
+            <a href="#"><img src="{% static '/images/icon-media/instagram.svg' %}"></a>
+            <a href="#"><img src="{% static '/images/icon-media/youtube.svg' %}"></a>
+            <a href="#"><img src="{% static '/images/icon-media/email.svg' %}"></a>
+           <br>
+              <a href="#" style="color: #000; font-size: 18px; font-weight: bolder; display: block; margin-top: 20px;">
+                Quan Tâm Zalo 
+              </a>
+              <p>Nhận các thông tin khuyến mãi hấp dẫn</p>
+              <a href="#"><img style="width: 100px; height: 35px;" src="{% static '/images/icon-media/zalo.png' %}"></a>
+          </div>
+        </div>
+      
+      <div class="wrap-footer-pay-certificate"> 
+        <div class="wrap-payment">
+          <a href="#" style="color: #000; font-size: 18px; font-weight: bolder; ">Phương thước Thanh Toán</a><br>
+          <img src="{% static '/images/items-pay/1.png' %}">
+          <img src="{% static '/images/items-pay/images.png' %}">
+          <img src="{% static '/images/items-pay/JCB_logo.svg.png' %}">
+          <img src="{% static '/images/items-pay/Mastercard-logo.svg.png' %}">
+          <img src="{% static '/images/items-pay/MoMo_Logo.png' %}">
+        </div>
+        <div class="wrap-cerificate">
+          <a href="#" style="color: #000; font-size: 18px; font-weight: bolder; ">Chứng Nhận</a><br>
+          <img  style="width: 115px; height: 40px;" src="{% static '/images/items-pay/op-da-thong-bao-bo-cong-thuong-183x60.png' %}">
+        </div>
+      </div>
+          <script src="action.js"></script>
+      </body>
+      </html>
+      
+
+      
+    <!-- javascript -->
+    <script src="{% static '/js/action.js' %}"></script>
+</body> 
+</html>

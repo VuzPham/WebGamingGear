@@ -1,0 +1,81 @@
+{% extends "pages/base.html" %} 
+
+{% block title %} 
+    Login
+{% endblock %} 
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% block login %}
+        {% load static %}
+        <section class="vh-100" style="background-color: rgb(0, 0, 0);">
+            <div class="container h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-9">
+          
+                  <h1 class="text-white mb-4" >Đăng nhập</h1>
+                    <form class="card" style="border-radius: 15px;" method='POST' action = ''>
+                      {% csrf_token %}
+                      <div class="card-body">
+          
+                        <div class="row align-items-center pt-4 pb-3">
+                          <div class="col-md-3 ps-5">
+            
+                            <h6 class="mb-0">Tài khoản</h6>
+            
+                          </div>
+                          <div class="col-md-9 pe-5">
+            
+                              <input type="text" class="form-control form-control-lg"  name="username" placeholder="Enter your username"/>
+            
+                          </div>
+                        </div>
+
+                      <hr class="mx-n3">
+
+                      <div class="row align-items-center pt-4 pb-3">
+                        <div class="col-md-3 ps-5">
+          
+                          <h6 class="mb-0">Mật khẩu</h6>
+          
+                        </div>
+                        <div class="col-md-9 pe-5">
+          
+                            <input type="password" class="form-control form-control-lg" id="passwordField" name="password" placeholder="Enter your password"/>
+                            
+                        </div>
+                      </div>
+                      <div class="px-5 py-4">
+                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">Đăng nhập</button>
+                        <h6 class="text-fa-black-tie mb-4 mt-3">Tôi chưa có tài khoản rồi! <a href = {%url 'register'%}>Đăng ký</a></h6>
+                        {% for message in messages %}
+                        <h6 id='message' class="text-fa-black-tie mb-4 mt-3">{{message}}</h6>
+                        {% endfor %}
+                      </div>
+          
+                      </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        <script src="" async defer></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
+<!-- Bootstrap JS and jQuery -->
+
+
+
+{% endblock %} 

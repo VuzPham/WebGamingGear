@@ -1,0 +1,87 @@
+{% extends "pages/base.html" %}
+{% block title %}
+    {{ product.name }} - Chi Tiết Sản Phẩm
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load custom_filters %}
+<br>
+<h2 class="text-center">CHI TIẾT SẢN PHẨM</h2>
+<br>
+<div class="row">
+    <div class="col-6 text-center">
+        <img src="{% static 'HinhAnh/' %}{{ product.image }}" width="100%" style="border-radius: 20px;"/>
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <div class="col-4">
+                Tên Sản Phẩm
+            </div>
+            <div class="col-8 " style="color:blue; font-weight:700">
+                {{ product.name }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Tên Loại
+            </div>
+            <div class="col-8" style="color:blue">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Lượt Đánh Giá 5 sao
+            </div>
+            <div class="col-8" style="color:blue">
+                {{ product.rate }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Lượt Bán
+            </div>
+            <div class="col-8" style="color:blue">
+                {{ product.numbersell }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+                Nội dung Tóm tắt
+            </div>
+            <div class="col-8">
+                {{ product.description }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Giá bán
+            </div>
+            <div class="col-8 row ">
+
+                <div style="color:red;font-weight:700; margin-right: 30px; font-size:28px">
+                    {{ product.price|intcomma_custom }} VND
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                Tham gia
+            </div>
+            <div class="col-8">
+
+            </div>
+        </div>
+        <a class="btn btn-success " style="text-decoration:none; margin-left:50%" href="{% url 'them_gio_hang' product.id %}">Mua Ngay</a>
+
+    </div>
+</div>
+
+<br>
+    </div>
+{% endblock %}
+
+
+

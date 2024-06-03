@@ -1,0 +1,370 @@
+/* Reset CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2font chu va truc font sans-serif */
+html{
+    font-family: Helvetica, Arial, sans-serif;
+}
+/* 
+1. Từ ngoài vào trong 
+2. Từ trên xuống dưới
+3. Tổng quan đến chi tiết
+ */
+/* 
+1. Vị trí 
+2. Kích thước
+3. Màu sắc
+4. Kiểu dáng (kiểu chữ, hình ,...)
+ */
+
+ .card-img-top {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3); /* Same shadow effect as card */
+    transition: 0.3s;
+  }
+
+  .card:hover .card-img-top {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+  }
+#header {
+   
+    top:0;
+    left:0;
+    right:0;
+    height: 46px;
+    background-color: black;
+    z-index: 10; 
+}
+#nav {
+    display:inline-block ;
+}
+#nav .subnav {
+    list-style-type: none;
+}
+#nav li{
+    position: relative;
+}
+#nav > li {
+    display: inline-block;
+}
+#nav > li > a{
+    text-transform: uppercase;
+    color: white;
+}
+#nav li a{
+    text-decoration: none;
+    padding: 0px 24px;
+    line-height: 46px;
+    display: block;
+    font-weight: bold;
+}
+#nav li:hover .subnav{
+    display: block;
+}
+#nav .subnav li:hover a,
+#nav > li:hover > a{
+    color: #000;
+    background-color: grey;
+}
+
+#nav .subnav{
+    display: none;
+    position: absolute;
+    top:100%;
+    left:0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgb(0, 0, 0,0.5);
+    min-width: 160px;
+
+}
+#nav .subnav a{ 
+   color: #000;
+   padding: 0px 17px;
+   line-height: 38px;
+}
+#nav .nav-arrow{
+    font-size: 15px;
+}
+
+#header .search-icon:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+#header .search-icon{
+    padding: 13px 15px;
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#header .table-search{
+    top: 12px;
+    right: 50px;
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    border: none;
+    border-radius: 2px;
+    padding-left: 10px;
+    
+}
+.header-second{
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.header-second .section1{
+    font-size: larger;
+    line-height: 70px;
+}
+.header-second .section1 a{
+    margin: 0px 20px;
+}
+
+/* body */
+.blog-new-left a,
+.button a,
+.header-second a
+{
+    text-decoration: none;
+    color: black;
+}
+.slider{
+    width: 1920px;
+    max-width: 100vw;
+    height: 500px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    min-width: 100%;
+}
+.list{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    width: max-content;
+    transition: 1s;
+}
+.list img{
+    width: 1920px;
+    max-width: 100vw;
+    height: 100%;
+    object-fit: cover;
+}
+.button{
+    width: 100%;
+    display: flex;
+    top: 45%;
+    position: absolute;
+    justify-content: space-between;
+}
+.slider .button a{
+    font-size: 30px;
+    color: #fff;
+    margin: 0px 20px;
+}
+
+.slider .button a:hover{
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #fff5;
+}
+.menu{
+    width: 1920px;
+    display: flex;
+    justify-content: space-between;
+}
+.menu{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+.menu img{
+    border-radius: 10px;
+    margin: 0px 10px;
+}
+.banner-cuahang{
+    min-width: 100%;
+    max-height: auto;
+    position: relative;
+}
+.banner-cuahang img{
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.banner-cuahang span 
+{
+    left: 25%;
+    top: 50%;
+    position: absolute;
+    text-align: center;
+    line-height: 40px;
+}
+.banner-cuahang a{
+    text-decoration: none;
+    color: #fff;
+    font-family: Roboto,sans-serif;
+    font-size: 24px;
+}
+
+.wrap-archives{
+    height: 500px;
+    margin-top: 10px;
+    background-color: #000;
+}
+.main-title a{
+    font-size: 30px;
+    font-family: 'PNJ Demibold';
+    background-color: #fff;
+    padding: 0px 20px; color: #003868;
+}
+.main-title h2{
+    position: relative;
+}
+.main-title h2::before{
+    display: block;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 1px;
+    z-index: -1;
+    width: 100%;
+    background-color: #ccc;
+}
+.blog-new{
+    display: flex;
+}
+.blog-new-left{
+    display: flex;
+    width: 49.9%;
+    margin-left: 30px;
+    height: 350px;
+}
+.blog-new-left img{
+    height: 200px;
+    width: 350px;
+}
+.blog-new-left .title{
+    margin: 15px 0px;
+}
+.blog-new-left .items{
+    margin: 0px 20px;
+    text-align: center;
+    height: 350px;
+}
+.link-view-all{
+    text-align: center;
+    margin-top: 80px;
+}
+.view-all{
+    padding: 10px 75px;
+    font-size: 20px;
+    border: 1px solid #000;
+    border-radius: 6px;
+}
+
+/* footer */
+.footer-information{
+    font-size: 14px;
+    display: flex;
+    color: #282828;
+}
+body a{
+    text-decoration: none;
+}
+body li{
+    list-style: none;
+}
+.footer-column-2 li{
+    margin-top: 10px;
+    
+}
+.footer-column-2 li a{
+    color: #282828;
+}
+.footer-column-3 img{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.space{
+    margin: 0px 20px;
+}
+.wrap-footer-pay-certificate{
+    display: flex;
+    justify-content: end;
+    padding-bottom: 80px;
+    padding-top: 40px;
+}
+.wrap-footer-pay-certificate .wrap-payment{
+    margin-right: 60px;
+}
+.wrap-footer-pay-certificate .wrap-cerificate{
+    margin-right: 160px;
+}
+.wrap-footer-pay-certificate .wrap-payment img{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+.wrapper {
+    display: flex;
+    flex: 1;
+  }
+
+  .wrapper {
+    display: flex;
+    flex: 1;
+  }
+.sidebar{
+ padding-left: 80px;
+}
+.sidebar li{
+    padding: 10px 0px;
+}
+
+.title-item{
+    display: flex;
+    justify-content: space-between;
+}
+.card{
+    margin: 0px 10px;
+}
+.card-title{
+    text-align: center;
+    font-size: 14px;
+}
+.card-text{
+    text-align: center;
+}
+.card-text:nth-child(2){
+    color: chocolate;
+    margin: 0;
+    font-size: 20px;
+}
+.card-text:nth-child(3){
+    color: red;
+    font-size: 12px;
+    height: 20px;
+}
+.card-text:nth-child(4){
+    text-align: left;
+}
+.product-view-rating{
+    display: flex;
+    justify-content: space-between;
+}

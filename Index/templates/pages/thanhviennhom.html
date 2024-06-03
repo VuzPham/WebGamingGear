@@ -1,0 +1,26 @@
+{% extends "pages/base.html" %} 
+{% block title %} 
+    Thành viên nhóm
+{% endblock %} 
+
+{% block content %} 
+<h3>Tên đề tài: Website quản lý và bán các trang thiết bị điện tử</h3>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Mã Sinh Viên</th>
+        <th scope="col">Tên Sinh Viên</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for member in DM_ThanhVien %}
+      <tr>
+          <td>{{ member.username }}</td>
+          <td>{{ member.name }}</td>
+          
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %} 

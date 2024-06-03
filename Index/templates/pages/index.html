@@ -1,0 +1,290 @@
+{% extends "pages/base.html" %} 
+{% block title %} 
+    Thiết bị điện tử
+{% endblock %} 
+
+{% block content %}
+{% load static %}
+{% load custom_filters %}
+<div class="container title-item" style="margin-top: 20px">
+  <h4 id="laptop" style="color:darkblue; font-weight: 400;">LapTop</h4>
+  <a href="https://cellphones.com.vn/laptop.html" style="color: grey;"><h6>Xem Thêm >></h6></a>
+</div>
+
+<div class="container">
+  <div class="row" style="width: 1000px;">
+    {% for product in DM_SanPham %}
+      {% if product.Category_id  == 1 %}
+        {% with forloop.counter0|divisibleby:9 as new_row %}
+          {% if new_row and forloop.counter0 != 0 %}
+            </div>
+            <div class="row" style="width: 1000px;">
+          {% endif %}
+        {% endwith %}
+        <div class="col-md-4">
+          <div class="card" style="border: none; background-color: rgb(250, 250, 250);">
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{% static 'HinhAnh/' %}{{ product.image }}" class="card-img-top" alt="{{ product.image }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h5>
+              <p class="card-text">{{ product.price|intcomma_custom }} VND</p>
+              <p class="card-text">Giảm đến 750.000k khi mua online</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
+              <div class="product-view-rating">
+                <div class="left">
+                  <i class="fa fa-star" aria-hidden="true" style="color:#ffc107"></i> 5({{ product.rate }})
+                </div>
+                <div class="right">
+                  <p>{{ product.numbersell }} Lượt Bán</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+<div class="container title-item" style="margin-top: 20px">
+  <h4 id="manhinh" style="color:darkblue; font-weight: 400;">Màn Hình</h4>
+  <a href="https://cellphones.com.vn/man-hinh.html" style="color: grey;"><h6>Xem Thêm >></h6></a>
+</div>
+<div class="container">
+  <div class="row" style="width: 1000px;">
+    {% for product in DM_SanPham %}
+      {% if product.Category_id  == 2 %}
+        {% with forloop.counter0|divisibleby:12 as new_row %}
+          {% if new_row and forloop.counter0 != 0 %}
+            </div>
+            <div class="row" style="width: 1000px;">
+          {% endif %}
+        {% endwith %}
+        <div class="col-md-4">
+          <div class="card" style="border: none; background-color: rgb(250, 250, 250);">
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{% static 'HinhAnh/' %}{{ product.image }}" class="card-img-top" alt="{{ product.image }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h5>
+              <p class="card-text">{{ product.price|intcomma_custom }} VND</p>
+              <p class="card-text">Giảm đến 750.000k khi mua online</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
+              <div class="product-view-rating">
+                <div class="left">
+                  <i class="fa fa-star" aria-hidden="true" style="color:#ffc107"></i> 5({{ product.rate }})
+                </div>
+                <div class="right">
+                  <p>{{ product.numbersell }} Lượt Bán</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container title-item" style="margin-top: 20px">
+  <h4 id="banphim"style="color:darkblue; font-weight: 400;">Bàn Phím</h4>
+  <a href="https://cellphones.com.vn/phu-kien/chuot-ban-phim-may-tinh/ban-phim/gaming.html" style="color: grey;"><h6>Xem Thêm >></h6></a>
+</div>
+<div class="container">
+  <div class="row" style="width: 1000px;">
+    {% for product in DM_SanPham %}
+      {% if product.Category_id  == 3 %}
+        {% with forloop.counter0|divisibleby:3 as new_row %}
+          {% if new_row and forloop.counter0 != 0 %}
+            </div>
+            <div class="row" style="width: 1000px;">
+          {% endif %}
+        {% endwith %}
+        <div class="col-md-4">
+          <div class="card" style="border: none; background-color: rgb(250, 250, 250);">
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{% static 'HinhAnh/' %}{{ product.image }}" class="card-img-top" alt="{{ product.image }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h5>
+              <p class="card-text">{{ product.price|intcomma_custom }} VND</p>
+              <p class="card-text">Giảm đến 750.000k khi mua online</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
+              <div class="product-view-rating">
+                <div class="left">
+                  <i class="fa fa-star" aria-hidden="true" style="color:#ffc107"></i> 5({{ product.rate }})
+                </div>
+                <div class="right">
+                  <p>{{ product.numbersell }} Lượt Bán</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container title-item" style="margin-top: 20px">
+  <h4 id ="chuot" style="color:darkblue; font-weight: 400;">Chuột</h4>
+  <a href="https://cellphones.com.vn/phu-kien/chuot-ban-phim-may-tinh/chuot/gaming.html" style="color: grey;"><h6>Xem Thêm >></h6></a>
+</div>
+<div class="container">
+  <div class="row" style="width: 1000px;">
+    {% for product in DM_SanPham %}
+      {% if product.Category_id  == 4 %}
+        {% with forloop.counter0|divisibleby:3 as new_row %}
+          {% if new_row and forloop.counter0 != 0 %}
+            </div>
+            <div class="row" style="width: 1000px;">
+          {% endif %}
+        {% endwith %}
+        <div class="col-md-4">
+          <div class="card" style="border: none; background-color: rgb(250, 250, 250);">
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{% static 'HinhAnh/' %}{{ product.image }}" class="card-img-top" alt="{{ product.image }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h5>
+              <p class="card-text">{{ product.price|intcomma_custom }} VND</p>
+              <p class="card-text">Giảm đến 750.000k khi mua online</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
+              <div class="product-view-rating">
+                <div class="left">
+                  <i class="fa fa-star" aria-hidden="true" style="color:#ffc107"></i> 5({{ product.rate }})
+                </div>
+                <div class="right">
+                  <p>{{ product.numbersell }} Lượt Bán</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container title-item" style="margin-top: 20px">
+  <h4 id="tainghe" style="color:darkblue; font-weight: 400;">Tai Nghe</h4>
+  <a href="https://cellphones.com.vn/thiet-bi-am-thanh/tai-nghe.html" style="color: grey;"><h6>Xem Thêm >></h6></a>
+</div>
+<div class="container">
+  <div class="row" style="width: 1000px;">
+    {% for product in DM_SanPham %}
+      {% if product.Category_id  == 5 %}
+        {% with forloop.counter0|divisibleby:12 as new_row %}
+          {% if new_row and forloop.counter0 != 0 %}
+            </div>
+            <div class="row" style="width: 1000px;">
+          {% endif %}
+        {% endwith %}
+        <div class="col-md-4">
+          <div class="card" style="border: none; background-color: rgb(250, 250, 250);">
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{% static 'HinhAnh/' %}{{ product.image }}" class="card-img-top" alt="{{ product.image }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h5>
+              <p class="card-text">{{ product.price|intcomma_custom }} VND</p>
+              <p class="card-text">Giảm đến 750.000k khi mua online</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
+              <div class="product-view-rating">
+                <div class="left">
+                  <i class="fa fa-star" aria-hidden="true" style="color:#ffc107"></i> 5({{ product.rate }})
+                </div>
+                <div class="right">
+                  <p>{{ product.numbersell }} Lượt Bán</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container title-item" style="margin-top: 20px">
+  <h4 id="pc" style="color:darkblue; font-weight: 400;">PC</h4>
+  <a href="https://cellphones.com.vn/may-tinh-de-ban.html" style="color: grey;"><h6>Xem Thêm >></h6></a>
+</div>
+<div class="container">
+  <div class="row" style="width: 1000px;">
+    {% for product in DM_SanPham %}
+      {% if product.Category_id  == 6 %}
+        {% with forloop.counter0|divisibleby:3 as new_row %}
+          {% if new_row and forloop.counter0 != 0 %}
+            </div>
+            <div class="row" style="width: 1000px;">
+          {% endif %}
+        {% endwith %}
+        <div class="col-md-4">
+          <div class="card" style="border: none; background-color: rgb(250, 250, 250);">
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{% static 'HinhAnh/' %}{{ product.image }}" class="card-img-top" alt="{{ product.image }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h5>
+              <p class="card-text">{{ product.price|intcomma_custom }} VND</p>
+              <p class="card-text">Giảm đến 750.000k khi mua online</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
+              <div class="product-view-rating">
+                <div class="left">
+                  <i class="fa fa-star" aria-hidden="true" style="color:#ffc107"></i> 5({{ product.rate }})
+                </div>
+                <div class="right">
+                  <p>{{ product.numbersell }} Lượt Bán</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container title-item" style="margin-top: 20px">
+  <h4 id="mic" style="color:darkblue; font-weight: 400;">Mic</h4>
+  <a href="https://cellphones.com.vn/thiet-bi-am-thanh/micro-thu-am.html" style="color: grey;"><h6>Xem Thêm >></h6></a>
+</div>
+<div class="container">
+  <div class="row" style="width: 1000px;">
+    {% for product in DM_SanPham %}
+      {% if product.Category_id == 8 %}
+        {% with forloop.counter0|divisibleby:3 as new_row %}
+          {% if new_row and forloop.counter0 != 0 %}
+            </div>
+            <div class="row" style="width: 1000px;">
+          {% endif %}
+        {% endwith %}
+        <div class="col-md-4">
+          <div class="card" style="border: none; background-color: rgb(250, 250, 250);">
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{% static 'HinhAnh/' %}{{ product.image }}" class="card-img-top" alt="{{ product.image }}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h5>
+              <p class="card-text">{{ product.price|intcomma_custom }} VND</p>
+              <p class="card-text">Giảm đến 750.000k khi mua online</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
+              <div class="product-view-rating">
+                <div class="left">
+                  <i class="fa fa-star" aria-hidden="true" style="color:#ffc107"></i> 5({{ product.rate }})
+                </div>
+                <div class="right">
+                  <p>{{ product.numbersell }} Lượt Bán</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %} 

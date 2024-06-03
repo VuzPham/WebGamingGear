@@ -1,0 +1,34 @@
+{% extends "pages/base.html" %} 
+
+{% block title %} 
+    Danh Sách Sản Phẩm theo bảng
+{% endblock %} 
+
+{% block content %}
+{% load static %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Mã Sản Phẩm</th>
+        <th scope="col">Tên Sản Phẩm</th>
+        <th scope="col">Mô tả</th>
+        <th scope="col">Giá Bán</th>
+        <th scope="col">Đánh giá</th>
+        <th scope="col">Lượt Bán</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in DM_SanPham %}
+      <tr>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}VND</td>
+          <td>{{ product.rate }}</td>
+          <td>{{ product.numbersell }}</td>
+          <td><img width="100px" height="70px" src="{% static 'HinhAnh/' %}{{ product.image }}" alt=""></td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %} 

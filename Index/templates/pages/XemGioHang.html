@@ -1,0 +1,72 @@
+﻿{% extends "pages/base.html" %}
+{% block title %}Xem giỏ hàng{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load humanize %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Giỏ hàng của bạn</h2>
+    <form action="{% url 'cap_nhat_gio_hang' %}" method="POST">
+        {% csrf_token %}
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Thông tin</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng cộng</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item_id, item in gio.items %}
+                    <tr>
+                        <td>
+                            <img src="{% static 'HinhAnh/' %}{{ item.image }}" alt="{{ item.name }}" class="img-thumbnail" style="width: 100px;">
+                        </td>
+                        <td>
+                            <h5>{{ item.name }}</h5>
+                        </td>
+                        <td>{{ item.price|intcomma }} VND</td>
+                        <td>
+                            <input type="number" name="quantity_{{ item_id }}" class="form-control" min="1" max="100" value="{{ item.quantity }}">
+                            <input type="hidden" name="item_id_{{ item_id }}" value="{{ item_id }}">
+                        </td>
+                        <td>{{ item.quantity }} VND</td>
+                        <td class="text-center">
+                            <a href="{% url 'xoa_san_pham_gio_hang' item_id %}" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-between mt-4">
+            <div>
+                <a href="{% url 'xoa_gio_hang' %}" class="btn btn-warning">Xóa giỏ hàng</a>
+                <button class="btn btn-primary" type="submit">Cập nhật giỏ hàng</button>
+            </div>
+            <div>
+                <a href="{% url 'products' %}" class="btn btn-success">Tiếp tục mua sắm</a>
+            </div>
+        </div>
+    </form>
+    <!-- Khu vực tính tổng cộng -->
+    <div class="row mt-5">
+        <div class="col-lg-4 col-md-12">
+            <div class="border p-3">
+                <h4 class="border-bottom pb-2">Tổng cộng</h4>
+                <div class="d-flex justify-content-between">
+                    <p>Tổng cộng</p>
+                    <span>{{ total_tong|intcomma }} </span>
+                </div>
+                <!-- Trong phần content của template -->
+                <a href="{% url 'dat_hang' %}" class="btn btn-success">Thanh toán</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
